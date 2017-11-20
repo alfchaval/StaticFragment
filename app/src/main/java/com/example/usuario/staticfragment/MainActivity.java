@@ -1,10 +1,10 @@
 package com.example.usuario.staticfragment;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements FragmentA.FragmentAListener {
+public class MainActivity extends Activity implements FragmentA.FragmentAListener {
 
     private Fragment fragmentB;
 
@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements FragmentA.Fragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentB = getSupportFragmentManager().findFragmentById(R.id.fragmentB);
+        fragmentB = getFragmentManager().findFragmentById(R.id.fragmentB);
     }
 
     @Override

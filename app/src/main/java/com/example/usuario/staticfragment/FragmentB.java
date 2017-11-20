@@ -1,8 +1,8 @@
 package com.example.usuario.staticfragment;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +29,9 @@ public class FragmentB extends Fragment {
         txvMessage.setTextSize(size);
     }
 
+    /**
+         * La activity peta con SaveInstanceState si se usa Support
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -39,7 +42,8 @@ public class FragmentB extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        txvMessage.setText(savedInstanceState.getString("message"));
-        txvMessage.setTextSize(savedInstanceState.getFloat("size"));
+        if (savedInstanceState != null) {
+            changeTextAndSize(savedInstanceState.getString("message"), savedInstanceState.getInt("size"));
+        }
     }
 }
